@@ -2,7 +2,11 @@ body {
    font-size: 20px;
    margin: 0;
    background-color: #f8f8f8;
-   font-family: Poppins, sans-serif;
+   font-family: 'Montserrat', sans-serif;
+   font-family: 'Ubuntu', sans-serif;
+}
+.logo{
+   height: 4rem;
 }
 a{
    text-decoration: none;
@@ -21,15 +25,15 @@ nav {
    display: flex;
    flex-direction: row;
    justify-content:space-between;
-   width: 60%;
+   width: 50%;
    height: fit-content;
 }
 nav a {
    /* padding-inline: 20px; */
+   font-family: 'Bree Serif', serif;
    text-decoration: none;
    color: #010103;
    cursor: pointer;
-   font-family: Rubik,sans-serif;
    font-size: 1.6rem;
    font-weight: 500;
    text-decoration: none;
@@ -56,18 +60,33 @@ nav a {
 
 .Container {
    padding: 2rem;
-   margin: 0 8rem 4rem;
+   margin: 0 2rem 4rem;
    align-items: center;
-   background-color: #f8f8f8;
-
+   overflow: hidden;
+   max-width: 130rem;
+   /* background-color: #f8f8f8; */
+/* background-color: rgba(255, 255, 255, 0.5); */
+   @media (min-width:130rem) {
+      margin: auto;
+      padding: auto;
+   }
    @media (max-width: 1050px) {
-      margin: 0px;
+      margin: 2rem;
       padding-left: 0;
       padding-right: 0;
    }
 
 }
-
+.homePageIMG{
+   position: absolute;
+   right: 0;
+   top: 0;
+   height: 150vh;
+   z-index: -2;
+   @media (max-width:800px) {
+      width: 0;
+   }
+}
 .HeroContainer {
    align-items: center;
    display: flex;
@@ -80,13 +99,19 @@ nav a {
 
 h1 {
    margin: 0;
+   font-size: 3rem;
+   font-family: 'Montserrat';
 }
 
 h2 {
    margin: 0;
+   font-family: 'Bree Serif', serif;
+   font-size: 2rem;
 }
 
 h3 {
+   font-family: 'Bree Serif', serif;
+   font-size:1.3rem;
    margin: 0;
 }
 
@@ -96,16 +121,47 @@ h3 {
    margin-top: 5rem;
    max-width: 40rem;
    z-index: 3;
+   height:30vh;
+   justify-content:flex-end;
+   @media (max-width:800) {
+      width: 100%;
+   }
 }
-
+.HeroContainerText a:hover{
+   transition: all 0.2s ease-out;
+   color: #ff4d30;
+}
+.BackgroundIMG{
+   background-image: url(https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80);
+   background-position: 50%;
+   background-repeat: no-repeat;
+   background-size: cover;
+   height: 37rem;
+   position: absolute;
+   width: 100%;
+   left:0;
+   top:0;
+   z-index: -2;
+}
+.sudoIMG{
+   background-color: hsla(0, 0%, 100%, 0.781);
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
 .HeroContainerImg {
+   max-width: 80rem;
    width: 80%;
    height: auto;
    position: absolute;
    right: -8rem;
    top: 0;
-   z-index: 2;
-   overflow: hidden;
+   z-index: -1;
+   @media(max-width:800px) {
+      width: 0;
+   }
 }
 
 .HeroContainerTextBtn {
@@ -155,10 +211,21 @@ h3 {
    flex-direction: column;
    padding: 1.5rem;
 }
-
-.inputFields select {
+.dateInput{
+   height: 100%;
+}
+.inputFields select,.inputFields input{
    padding: 0.75rem;
    border-radius: 0.4rem;
+   color: #706f7b;
+   font-family: 'Bree Serif';
+   font-size: 1.2rem;
+}
+.inputFields label{
+   padding: 0.5rem;
+   font-family: 'Bree Serif';
+   font-size: 1.2rem;
+
 }
 
 .bookCarForm button {
@@ -167,7 +234,7 @@ h3 {
    margin-inline: 1.5rem;
    width: 25%;
    padding: 0.75rem;
-   margin-top: 2.8rem;
+   margin-top: 4rem;
    margin-bottom: 1.5rem;
 }
 
@@ -238,6 +305,16 @@ h3 {
    text-align: center;
    justify-content: center;
    border: 2px solid #f8f8f8;
+}
+.reserve{
+   border-radius: 0.4rem;
+   border: 0;
+   width: 100%;
+   padding: 1rem;
+   margin-top: 2.8rem;
+   margin-bottom: 1.5rem;
+   background-color: #ff4d30;
+   color: #fff;
 }
 
 .selectedCar,
@@ -352,9 +429,10 @@ h3 {
    flex-direction: column;
 }
 
-.textContainerRight img {
+.textContainerRight img,.planContainer img {
    height: 9rem;
    width: auto;
+   align-self: center;
    margin: 0;
    margin-right: 1rem;
 }
@@ -482,7 +560,16 @@ h3 {
    padding: 5rem;
    padding-bottom: 0;
 }
-
+.downloadImg{
+   min-width: 20rem;
+   height: auto;
+   z-index: 100;
+   overflow:hidden;
+}
+.downloadContainer{
+   display: flex;
+   align-items: flex-start;
+}
 /* Footer */
 .Footer {
    z-index: 10;
@@ -530,9 +617,10 @@ h3 {
 }
 .iconContent{
    display: flex;
-   flex-direction: row ;
+   flex-direction: column ;
+   flex-wrap: wrap;
    align-items: center;
-   justify-content: space-between;
+   align-content: space-around;
 }
 
 .carCardContainer{
@@ -543,10 +631,14 @@ h3 {
    grid-gap: 3rem;
 }
 .carCard{
-   border: 1px solid
-    #706f7b;
+   border: none;
+   /* box-shadow: 0 10px 15px 0 rgba(61, 14, 5, 0.35); */
    border-radius: 1rem;
    height: fit-content;
+}
+.carCard:hover{
+   transition:all  0.3s ease-out;
+   box-shadow: 0 10px 15px 0 rgba(61, 14, 5, 0.35);
 }
 .carCard_description{
    padding: 2rem;

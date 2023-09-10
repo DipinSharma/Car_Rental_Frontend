@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react/jsx-pascal-case */
-import React from "react";
+import React, { useRef, useState } from "react";
 import Dropdown from "./Dropdown";
 import Card from "./Card";
 import Heading from "./Heading";
@@ -10,18 +10,30 @@ import Footer from "../../Footer";
 import Plan from "../../Plan";
 import Banner from "../../Banner";
 import Testimonial from "../../Testimonial";
-
+import DateInput from "./dateInput";
 const Home = () => {
+    const section2Ref = useRef();
+
+    const scrollToBook = () => {
+        section2Ref.current.scrollIntoView({ behavior: "smooth" });
+    };
+    const [cars, setCars] = useState(["select Your Car"]);
+    const getCars = (e) => {
+        setCars(e);
+    }
+    const pickup = ["delhi", "mumbai", "Noida", "punjab"]
+    const dropOf = ["delhi", "mumbai", "Noida", "punjab"]
     return (
         <div>
             <section className="Container">
+            <img src="https://car-rental-ten.vercel.app/static/media/hero-bg.3b5f7a2502f0f81d1490.png" alt="" className="homePageIMG"></img>
                 <div className="HeroContainer">
                     <div className="HeroContainerText">
                         <h3>Plan your trip now</h3>
-                        <h1>Save big with out car rental</h1>
+                        <h1>Save <span className="coloredText">big</span> with out car rental</h1>
                         <p>Rent the car of your dreams. Unbeatable prices,unlimited miles, flexible pickup options and much more.</p>
                         <div className="HeroContainerTextBtn">
-                            <button id="bookRide">Book ride✔️</button>
+                            <button id="bookRide" onClick={scrollToBook}>Book ride✔️</button>
                             <button id="learnMore">Learn More</button>
                         </div>
                     </div>
@@ -30,14 +42,14 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="bookCar Container">
+            <section className="bookCar Container" ref={section2Ref}>
                 <h2>Book A Car</h2>
                 <div className="bookCarForm">
-                    <Dropdown name="select your car type " className="inputFields" />
-                    <Dropdown name="pick-Up" className="inputFields" />
-                    <Dropdown name="Drop-Of " className="inputFields" />
-                    <Dropdown name="Pick-Up" className="inputFields" />
-                    <Dropdown name="Drop Of " className="inputFields" />
+                    <Dropdown name="select your car type " className="inputFields" options={cars} default="select Your Car" />
+                    <Dropdown name="pick-Up" className="inputFields" options={pickup} default="select pick up location" />
+                    <Dropdown name="Drop-Of " className="inputFields" options={dropOf} default="select drop of location" />
+                    <DateInput name="Pick-Up" type="date" className="inputFields" />
+                    <DateInput name="Drop Of" type="date" className="inputFields" />
                     <button>Search</button>
 
                 </div>
@@ -49,7 +61,7 @@ const Home = () => {
 
             <section className="modelsContainer Container">
                 <Heading heading1="vehicle Models" heading2="Our rental fleets" details="choose from a variety of our amazing vehicles to rent for your next adventure or buisness trip" className="modelsContainerTitle" />
-                <Pick_Container className="modelsContainerCar" />
+                <Pick_Container className="modelsContainerCar" getCars={getCars} onClick={scrollToBook} />
             </section>
 
             <section className="banner">
@@ -62,7 +74,7 @@ const Home = () => {
                     <div className="textContainer">
                         <div className="textContainerLeft">
                             <Heading heading1="why choose us" heading2="Best valued deals ou will ever find" details="Discover the best deals you'll ever find with our unbeatable offers. We're dedicated to providing you with the best value for your money, so you can enjoy top-quality services and products without breaking the bank. Our deals are designed to give you the ultimate renting experience, so don't miss out on your chance to save big." className="textContainerTitle" />
-                            <button>Find details</button>
+                            <button onClick={scrollToBook}>Find details</button>
                         </div>
                         <div className="textContainerRight">
                             <Card className="textContainerRightCards" Heading="Cross country Drive" details="Take your driving experience to the next level with our top-notch vehicles for your cross-country adventures." src="
@@ -88,15 +100,15 @@ const Home = () => {
                     <FAQ />
                 </div>
             </section>
-            <section className="Container">
+            <section className="downloadContainer Container">
                 <div className="downloadTitle">
                     <Heading heading2="Download our app to get most out of it" details="Thrown shy denote ten ladies though ask saw. Or by to he going think order event music. Incommode so intention defective at convinced. Led income months itself and houses you." className="" />
                     <div className="downloadImgs">
                         <img src="https://www.freepnglogos.com/uploads/play-store-logo-png/play-store-logo-nisi-filters-australia-11.png" className="AndroidDownload"></img>
                         <img src="https://www.pngmart.com/files/10/Download-On-The-App-Store-PNG-Photos.png" className="AppleDownload"></img>
-
                     </div>
                 </div>
+                <img src="https://images.ctfassets.net/pacigpl3aj13/6J6P3qlMpYPPuuJsOtoPa3/56e9e6b6aa119328bda5647ce5d258b8/Frame_2092__1_.png?w=1920&h=1730&q=95&fm=webp" className="downloadImg"></img>
             </section>
             <section className="footerContainer">
                 <Footer />

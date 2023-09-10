@@ -8,6 +8,7 @@ const Footer = () => {
                 <h2>CAR Rental</h2>
                 <p>We offers a big range of vehicles for all your driving needs. We have the perfect car to meet your needs.</p>
                 <a>📞+91 123-456-7890</a>
+                <br />
                 <a>✉️carrental@gmail.com</a>
                 <br />
                 <strong>designed by dipin</strong>

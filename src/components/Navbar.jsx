@@ -4,7 +4,7 @@ const Navbar = () => {
     return (
         <nav>
             <div>
-                
+                <img src="https://car-rental-ten.vercel.app/static/media/logo.0ad964cb93ab30cc809d.png" alt="logo" className="logo"></img>
             </div>
             <div className="Links">
                 <Link to="/">Home</Link>

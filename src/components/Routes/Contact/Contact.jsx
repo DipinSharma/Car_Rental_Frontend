@@ -5,6 +5,10 @@ const Contact = () => {
     return (
         <div>
             <section className="Container">
+                <div className="BackgroundIMG">
+                    <div className="sudoIMG"></div>
+                </div>
+
                 <div className="HeroContainerText">
                     <h1>Contact</h1>
                     <h3><a href="/">Home</a>/Contact</h3>
@@ -15,7 +19,7 @@ const Contact = () => {
                     <h1>Need addition information</h1>
                     <p>A multifaceted professional skilled in multiple fields of research, development as well as a learning specialist. Over 15 years of experience.</p>
                     <ol>
-                        <li><a href="/">📞+91 123-456-7890✉️</a></li>
+                        <li><a href="/">📞+91 123-456-7890</a></li>
                         <li><a href="/">✉️carrental@gmail.com</a></li>
                         <li><a href="/">Delhi,India</a></li>
                     </ol>

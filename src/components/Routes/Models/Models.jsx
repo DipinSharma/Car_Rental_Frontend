@@ -7,6 +7,10 @@ const Models = () => {
     return (
         <div>
             <section className="Container">
+                <div className="BackgroundIMG">
+                    <div className="sudoIMG"></div>
+                </div>
+
                 <div className="HeroContainerText">
                     <h1>Vehicle Models</h1>
                     <h3><a href="/">Home</a>/Vehicle Models</h3>

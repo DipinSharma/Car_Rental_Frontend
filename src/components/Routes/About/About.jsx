@@ -9,6 +9,10 @@ const About = () => {
     return (
         <div>
             <section className="Container">
+            <div className="BackgroundIMG">
+                    <div className="sudoIMG"></div>
+                </div>
+                
                 <div className="HeroContainerText">
                     <h1>About</h1>
                     <h3><a href="/">Home</a>/About</h3>
