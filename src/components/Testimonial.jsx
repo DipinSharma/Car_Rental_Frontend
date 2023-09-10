@@ -7,7 +7,7 @@ const Testimonial=()=>{
     useEffect(()=>{
         const fetchData=async()=>{
             try{
-                let response=await fetch(process.env.REACT_APP_GET_TESTIMONIALS);
+                let response=await fetch(process.env.REACT_APP_BASE_URL+process.env.REACT_APP_GET_TESTIMONIALS);
                 let dataReceived=await response.json();
                 setData(dataReceived);
             }

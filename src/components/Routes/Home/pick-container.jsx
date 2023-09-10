@@ -8,7 +8,7 @@ const Pick_Container = (props) => {
     useEffect(()=>{
         const fetchData=async()=>{
             try{
-                let response=await fetch(process.env.REACT_APP_GET_CARS);
+                let response=await fetch(process.env.REACT_APP_BASE_URL+process.env.REACT_APP_GET_CARS);
                 let dataReceived=await response.json();
                 setData(dataReceived);
                 setCarInfo(dataReceived[carNo]);
