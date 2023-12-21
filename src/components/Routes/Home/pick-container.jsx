@@ -1,37 +1,46 @@
 import React, { useEffect, useState } from "react";
 
 const Pick_Container = (props) => {
-    const [information,setInformation]=useState([]);
-    const [data,setData]=useState([]);
+    const [information, setInformation] = useState([]);
+    const [data, setData] = useState([]);
     const [carNo, setCarNo] = useState(0);
     const [carInfo, setCarInfo] = useState("");
-    useEffect(()=>{
-        const fetchData=async()=>{
-            try{
-                let response=await fetch(process.env.REACT_APP_BASE_URL+process.env.REACT_APP_GET_CARS);
-                let dataReceived=await response.json();
+    const [fadeIn, setFadeIn] = useState(false);
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                let response = await fetch(process.env.REACT_APP_BASE_URL + process.env.REACT_APP_GET_CARS);
+                let dataReceived = await response.json();
                 setData(dataReceived);
                 setCarInfo(dataReceived[carNo]);
-                var info=dataReceived.map(item=>item.brand+" "+item.model);
+                var info = dataReceived.map(item => item.brand + " " + item.model);
                 setInformation(info);
                 props.getCars(info);
-            }catch(error){
+                setFadeIn(true);
+            } catch (error) {
                 console.log(error);
             }
         }
         fetchData();
-    },[]);    
+    }, []);
 
     function handleClick(event) {
         setCarNo(event.target.id);
-        setCarInfo(data[event.target.id]);
+        // setCarInfo(data[event.target.id]);
+        setFadeIn(false); // Reset fade in when changing car
+        setTimeout(() => {
+            setCarInfo(data[event.target.id]);
+            setFadeIn(true);
+        }, 300);
     }
     return (
         <div className={props.className}>
             <div className="carNames">
-                {information.map((item,index)=>(<button onClick={handleClick} className={parseInt(carNo)===parseInt(index)?"selectedCar":""} id={index}>{item}</button>))}
+                {information.map((item, index) => (<button onClick={handleClick} className={parseInt(carNo) === parseInt(index) ? "selectedCar" : ""} id={index}>{item}</button>))}
             </div>
-            <div className="carImgContainer">
+            <div className={`carImgContainer ${fadeIn ? "fade-in" : ""}`}>
                 <img src={carInfo.image} className="carImg" alt="car IMG"></img>
 
             </div>

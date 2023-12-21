@@ -3,7 +3,7 @@ import React from "react";
 const TestimonialBox = (props) => {
     return (
         <div className={props.className}>
-            <h4>{'"' + props.review + '"'}</h4>
+            <h4>{props.review}</h4>
             <div>
                 <div className="userDetails">
                     <img src={props.src} alt=""></img>

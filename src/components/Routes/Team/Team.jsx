@@ -46,7 +46,7 @@ const Team = () => {
                     <h3><a href="/">Home</a>/Team</h3>
                 </div>
             </section>
-            <section className="Container">
+            <section className="Container parentEmployeeContainer">
                 <div className="employeeContainer">
                     {image.map((item, index) => (
                         <div className="employeeCard">

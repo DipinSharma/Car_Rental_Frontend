@@ -26,7 +26,7 @@ const Home = () => {
     return (
         <div>
             <section className="Container">
-            <img src="https://car-rental-ten.vercel.app/static/media/hero-bg.3b5f7a2502f0f81d1490.png" alt="" className="homePageIMG"></img>
+            {/* <img src="https://car-rental-ten.vercel.app/static/media/hero-bg.3b5f7a2502f0f81d1490.png" alt="" className="homePageIMG"></img> */}
                 <div className="HeroContainer">
                     <div className="HeroContainerText">
                         <h3>Plan your trip now</h3>
@@ -37,7 +37,7 @@ const Home = () => {
                             <button id="learnMore">Learn More</button>
                         </div>
                     </div>
-                    <img src="https://www.hyundai.com/in/en/virtual3dshowroom/i20-n-line/img/nline.png" className="HeroContainerImg"></img>
+                    <img src="https://www.freepnglogos.com/uploads/car-png/car-png-transparent-car-images-pluspng-0.png" className="HeroContainerImg"></img>
 
                 </div>
             </section>

@@ -11,7 +11,7 @@ const Footer = () => {
                 <br />
                 <a>✉️carrental@gmail.com</a>
                 <br />
-                <strong>designed by dipin</strong>
+                <strong>Made by dipin</strong>
             </div>
             <div className="FooterContent2">
                 <h2>Company</h2>
